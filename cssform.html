@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>css</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="testform.css" />
+</head>
+<body>
+    <div id="form">
+        <div id="bodyall">
+            <div id="body"></div>
+            <div id="body2"></div>    
+            <div id="eyeright"></div>
+            <div id="eyeleft"></div>
+            <div id="seyeright"></div>
+            <div id="seyeleft"></div>  
+            <div id="nois"></div>
+            <div id="feetleft"></div>
+            <div id="feetright"></div>
+            <div id="armleft"></div>
+            <div id="armright"></div>
+            <div id="shadow"></div> 
+        </div>
+    </div>
+    <div id="action" onclick="action('walk');">Walk</div>
+    <div id="action" onclick="action('stopwalk');">Stop</div>
+    <div id="action" onclick="action('hand');">Hand</div>
+    <div id="action" onclick="action('stophand');">Stop</div>
+</body>
+</html>
+<script>
+    function action(act){
+        var form = document.getElementById('form');
+        var armright = document.getElementById('armright');
+        var feetleft = document.getElementById('feetleft');
+        var feetright = document.getElementById('feetright');
+        var bodyall = document.getElementById('bodyall');
+        if (act == "walk") {
+            form.style.animationName = "walk";
+            feetright.style.animationName = "walkfeetright";
+            feetleft.style.animationName = "walkfeetleft";
+            bodyall.style.animationName = "walking";
+        } else if (act == "stopwalk"){
+            bodyall.style.animationName = feetright.style.animationName = feetleft.style.animationName = form.style.animationName = "";
+        } else if (act == "hand"){
+            armright.style.animationName = "hand";
+        } else if (act == "stophand"){
+            armright.style.animationName = "";
+        }
+    }
+</script>
